@@ -1,3 +1,7 @@
+//window.alert(car1.isTurnOn)
+//car1.start()
+//window.alert(car1.isTurnOn)
+
 function prefSlider() {
     currentImageIndex--;
     showNextBtn.disabled=false;
