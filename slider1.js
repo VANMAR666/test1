@@ -1,17 +1,21 @@
 var slider1 = {
     imgURL: [],
     currentImageIndex: 0,
-    showPrefBtn: document.getElementById('show-pref-btn'),
-    showNextBtn: document.getElementById('show-next-btn'),
-    slideImg: document.getElementById('slide-img'),
-
-    start: function () {
+    showPrefBtn: null,
+    showNextBtn: null,
+    slideImg: null,
+    start: function (elId) {
+        var elSelector='#'+elId;
+        var el = document.querySelector(elSelector);
+        this.showPrefBtn = el.querySelector('.show-pref-btn');
+        this.showNextBtn = el.querySelector('.show-next-btn');
+        this.slideImg = el.querySelector('.slide-img');
         //Обходим this в кнопках (согдаём отдельную переменную и запускаем функцию через другую)
-        var that=this;
-        this.showPrefBtn.addEventListener('click', function (){
+        var that = this;
+        this.showPrefBtn.addEventListener('click', function () {
             that.prefSlider();
         });
-        this.showNextBtn.addEventListener('click', function (){
+        this.showNextBtn.addEventListener('click', function () {
             that.nextSlider();
         });
 
