@@ -4,7 +4,8 @@ function Slider() {
     this.showPrefBtn = null;
     this.showNextBtn = null;
     this.slideImg = null;
-    this.start = function (elId) {
+}
+Slider.prototype.start = function (elId) {
         var elSelector = '#' + elId;
         var el = document.querySelector(elSelector);
         this.showPrefBtn = el.querySelector('.show-pref-btn');
@@ -28,22 +29,19 @@ function Slider() {
         this.slideImg.src = this.imgURL[this.currentImageIndex];
         this.showPrefBtn.disabled = true;
     };
-
-    this.prefSlider = function () {
+Slider.prototype.prefSlider = function () {
         this.currentImageIndex--;
         this.slideImg.src = this.imgURL[this.currentImageIndex];
         this.showNextBtn.disabled = false;
         if (this.currentImageIndex === 0) {
             this.showPrefBtn.disabled = true;
         }
-    }
-
-    this.nextSlider = function () {
+    };
+Slider.prototype.nextSlider = function () {
         this.currentImageIndex++;
         this.slideImg.src = this.imgURL[this.currentImageIndex];
         this.showPrefBtn.disabled = false;
         if (this.currentImageIndex === this.imgURL.length - 1) {
             this.showNextBtn.disabled = true;
         }
-    }
-}
+    };
